@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Akin Express AI — Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">Akin Express AI</div>
+      <div class="group-info">University Students Group Chat</div>
+      <div id="user-box"></div>
+      <button id="inviteBtn" class="ghost">Invite</button>
+      <div class="links"><button id="signout" class="ghost">Sign out</button></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="search"><input id="search" placeholder="Search messages, people..." /></div>
+        <div class="status">Status: <span id="status">offline</span></div>
+      </header>
+      <section class="chat-area">
+        <div id="messages" class="messages"></div>
+        <div id="typing" class="typing"></div>
+        <form id="composer" class="composer">
+          <input id="text" placeholder="Type a message and mention @akinexpressai" autocomplete="off"/>
+          <input type="file" id="file" />
+          <button id="send">Send</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
