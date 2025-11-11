@@ -1,38 +1,329 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Akin Express AI — Pro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Light - Educational Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="shell">
-    <aside class="sidebar">
-      <div class="brand">Akin Express AI</div>
-      <div class="group-info">University Students Group Chat</div>
-      <div id="user-box"></div>
-      <button id="inviteBtn" class="ghost">Invite</button>
-      <div class="links"><button id="signout" class="ghost">Sign out</button></div>
-    </aside>
-    <main class="main">
-      <header class="topbar">
-        <div class="search"><input id="search" placeholder="Search messages, people..." /></div>
-        <div class="status">Status: <span id="status">offline</span></div>
-      </header>
-      <section class="chat-area">
-        <div id="messages" class="messages"></div>
-        <div id="typing" class="typing"></div>
-        <form id="composer" class="composer">
-          <input id="text" placeholder="Type a message and mention @akinexpressai" autocomplete="off"/>
-          <input type="file" id="file" />
-          <button id="send">Send</button>
-        </form>
-      </section>
-    </main>
-  </div>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-globe-americas"></i>
+                <span>Global Light</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#wassce" class="nav-link">WASSCE/WAEC</a>
+                <a href="#bible" class="nav-link">Bible Study</a>
+                <a href="#courses" class="nav-link">Courses</a>
+                <a href="#facebook" class="nav-link">FB Marketing</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
 
-  <script type="module" src="app.js"></script>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#wassce" class="mobile-link">WASSCE/WAEC</a>
+        <a href="#bible" class="mobile-link">Bible Study</a>
+        <a href="#courses" class="mobile-link">Courses</a>
+        <a href="#facebook" class="mobile-link">FB Marketing</a>
+        <a href="#about" class="mobile-link">About</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to Global Light</h1>
+            <p class="hero-subtitle">Empowering Education Through AI & Faith</p>
+            <div class="hero-features">
+                <div class="feature-badge">
+                    <i class="fas fa-brain"></i>
+                    <span>AI-Powered Learning</span>
+                </div>
+                <div class="feature-badge">
+                    <i class="fas fa-book-bible"></i>
+                    <span>Bible Studies</span>
+                </div>
+                <div class="feature-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>WASSCE/WAEC Prep</span>
+                </div>
+                <div class="feature-badge">
+                    <i class="fas fa-music"></i>
+                    <span>Music Courses</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Motivational Quote Display -->
+        <div class="motivation-box">
+            <i class="fas fa-quote-left"></i>
+            <p id="motivationQuote">Loading inspirational quote...</p>
+            <small id="quoteTimer">Updates every 30 minutes</small>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- WASSCE/WAEC Section -->
+        <section id="wassce" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-graduation-cap"></i> WASSCE/WAEC Exam Preparation</h2>
+                <p>Get personalized AI tutoring for your exams</p>
+            </div>
+
+            <div class="wassce-container">
+                <div class="subject-selector">
+                    <h3>Select Subject</h3>
+                    <div class="subject-grid" id="subjectGrid">
+                        <!-- Subjects will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <div class="wassce-chat">
+                    <div class="chat-header">
+                        <i class="fas fa-robot"></i>
+                        <span>AI WASSCE Tutor</span>
+                    </div>
+                    <div class="chat-messages" id="wassceChatMessages">
+                        <div class="bot-message">
+                            <p>Hello! I'm your AI WASSCE tutor. Select a subject and ask me any question about your exam preparation!</p>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="wassceInput" placeholder="Ask a question about your selected subject..." />
+                        <button id="wassceSendBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bible Study Section -->
+        <section id="bible" class="section bible-section">
+            <div class="section-header">
+                <h2><i class="fas fa-book-bible"></i> Bible Study & Gospel</h2>
+                <p>Discover the Word of God and strengthen your faith</p>
+            </div>
+
+            <div class="bible-container">
+                <div class="bible-verse-display">
+                    <h3>Verse of the Moment</h3>
+                    <div class="verse-card" id="verseCard">
+                        <div class="verse-ref" id="verseRef">Loading...</div>
+                        <div class="verse-text" id="verseText">Loading verse...</div>
+                        <button class="btn-refresh" id="refreshVerseBtn">
+                            <i class="fas fa-sync-alt"></i> New Verse
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bible-chat">
+                    <div class="chat-header">
+                        <i class="fas fa-cross"></i>
+                        <span>Bible Study Assistant</span>
+                    </div>
+                    <div class="chat-messages" id="bibleChatMessages">
+                        <div class="bot-message">
+                            <p>Welcome! Ask me anything about the Bible, Christian living, or spiritual guidance.</p>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="bibleInput" placeholder="Ask about Bible verses, theology, or faith..." />
+                        <button id="bibleSendBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bible Tournament Section -->
+            <div class="tournament-section">
+                <h3><i class="fas fa-trophy"></i> Bible Tournament</h3>
+                <p>Test your knowledge of scripture</p>
+                <div class="tournament-card" id="tournamentCard">
+                    <div class="tournament-question" id="tournamentQuestion">
+                        Click "New Question" to start!
+                    </div>
+                    <input type="text" id="tournamentAnswer" placeholder="Your answer..." />
+                    <div class="tournament-controls">
+                        <button class="btn-primary" id="newQuestionBtn">New Question</button>
+                        <button class="btn-success" id="submitAnswerBtn">Submit Answer</button>
+                    </div>
+                    <div class="tournament-result" id="tournamentResult"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-music"></i> AI-Powered Courses</h2>
+                <p>Learn music, instruments, and more with AI guidance</p>
+            </div>
+
+            <div class="courses-grid">
+                <div class="course-card" data-course="piano">
+                    <div class="course-icon"><i class="fas fa-piano"></i></div>
+                    <h3>Piano Lessons</h3>
+                    <p>Master the piano with step-by-step AI instruction</p>
+                    <button class="btn-course">Start Learning</button>
+                </div>
+
+                <div class="course-card" data-course="guitar">
+                    <div class="course-icon"><i class="fas fa-guitar"></i></div>
+                    <h3>Guitar Lessons</h3>
+                    <p>Learn guitar from basics to advanced techniques</p>
+                    <button class="btn-course">Start Learning</button>
+                </div>
+
+                <div class="course-card" data-course="drums">
+                    <div class="course-icon"><i class="fas fa-drum"></i></div>
+                    <h3>Drum Lessons</h3>
+                    <p>Develop rhythm and drumming skills</p>
+                    <button class="btn-course">Start Learning</button>
+                </div>
+
+                <div class="course-card" data-course="vocals">
+                    <div class="course-icon"><i class="fas fa-microphone"></i></div>
+                    <h3>Vocal Training</h3>
+                    <p>Improve your singing voice and technique</p>
+                    <button class="btn-course">Start Learning</button>
+                </div>
+            </div>
+
+            <!-- Course Chat Interface -->
+            <div class="course-chat-container" id="courseChatContainer" style="display: none;">
+                <div class="chat-header">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span id="courseTitle">Music Teacher</span>
+                    <button class="close-btn" id="closeCourseBtn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chat-messages" id="courseChatMessages"></div>
+                <div class="chat-input-area">
+                    <input type="text" id="courseInput" placeholder="Ask your music teacher..." />
+                    <button id="courseSendBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facebook Marketing Section -->
+        <section id="facebook" class="section fb-section">
+            <div class="section-header">
+                <h2><i class="fab fa-facebook"></i> Facebook Marketing Mastery</h2>
+                <p>Learn how to make money on Facebook</p>
+            </div>
+
+            <div class="fb-marketing-container">
+                <div class="fb-topics">
+                    <h3>Topics to Master</h3>
+                    <div class="topics-list" id="fbTopicsList">
+                        <!-- Topics loaded dynamically -->
+                    </div>
+                </div>
+
+                <div class="fb-chat">
+                    <div class="chat-header">
+                        <i class="fab fa-facebook-messenger"></i>
+                        <span>Facebook Marketing Expert</span>
+                    </div>
+                    <div class="chat-messages" id="fbChatMessages">
+                        <div class="bot-message">
+                            <p>Hello! I'm your Facebook marketing expert. I'll teach you proven strategies to make money on Facebook through content creation, ads, and business growth. What would you like to learn?</p>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="fbInput" placeholder="Ask about Facebook marketing strategies..." />
+                        <button id="fbSendBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- General AI Chat Assistant -->
+        <section class="section chat-section">
+            <div class="section-header">
+                <h2><i class="fas fa-comments"></i> AI Chat Assistant</h2>
+                <p>Get help with anything - education, life advice, or general questions</p>
+            </div>
+
+            <div class="general-chat">
+                <div class="chat-header">
+                    <i class="fas fa-robot"></i>
+                    <span>Global Light AI Assistant</span>
+                </div>
+                <div class="chat-messages" id="generalChatMessages">
+                    <div class="bot-message">
+                        <p>Hello! I'm the Global Light AI Assistant. I can help you with studies, provide motivation, answer questions, and offer guidance. How can I assist you today?</p>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="generalInput" placeholder="Ask me anything..." />
+                    <button id="generalSendBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="section-header">
+                <h2><i class="fas fa-info-circle"></i> About Global Light</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Akin S. Sokpah</h3>
+                    <p class="creator-title">Founder & Creator</p>
+                    <div class="creator-info">
+                        <p><i class="fas fa-envelope"></i> sokpahakinsaye81@gmail.com</p>
+                        <p><i class="fab fa-facebook"></i> Express AI PRO</p>
+                        <p><i class="fas fa-id-card"></i> Page ID: 874616512398098</p>
+                    </div>
+                </div>
+
+                <div class="platform-info">
+                    <h3>Our Mission</h3>
+                    <p>Global Light is dedicated to empowering students globally through AI-powered education, faith-based learning, and practical skills development. We combine cutting-edge AI technology with timeless biblical wisdom to create a comprehensive learning platform.</p>
+
+                    <h3>Features</h3>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> AI-powered WASSCE/WAEC exam preparation</li>
+                        <li><i class="fas fa-check"></i> Comprehensive Bible study tools</li>
+                        <li><i class="fas fa-check"></i> Music and instrument courses</li>
+                        <li><i class="fas fa-check"></i> Facebook marketing training</li>
+                        <li><i class="fas fa-check"></i> Motivational quotes every 30 minutes</li>
+                        <li><i class="fas fa-check"></i> 24/7 AI assistance</li>
+                        <li><i class="fas fa-check"></i> Bible tournaments and quizzes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Global Light Educational Platform. Created by Akin S. Sokpah</p>
+            <p>Empowering minds, strengthening faith, building futures.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Motivation Button -->
+    <button class="floating-motivation" id="floatingMotivation" title="Get Motivated!">
+        <i class="fas fa-lightbulb"></i>
+    </button>
+
+    <script src="app.js"></script>
 </body>
 </html>
